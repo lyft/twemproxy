@@ -75,7 +75,6 @@ redis_arg0(struct msg *r)
     case MSG_REQ_REDIS_SPOP:
 
     case MSG_REQ_REDIS_ZCARD:
-
     case MSG_REQ_REDIS_PFCOUNT:
         return true;
 
