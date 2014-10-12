@@ -106,6 +106,7 @@ struct server_pool {
     uint16_t           port;                 /* port */
     int                family;               /* socket family */
     socklen_t          addrlen;              /* socket length */
+    struct string      mode;                 /* the socket permissions */
     struct sockaddr    *addr;                /* socket address (ref in conf_pool) */
     int                dist_type;            /* distribution type (dist_type_t) */
     int                key_hash_type;        /* key hash type (hash_type_t) */
@@ -136,9 +137,11 @@ void server_ok(struct context *ctx, struct conn *conn);
 
 struct conn *server_pool_conn(struct context *ctx, struct server_pool *pool, uint8_t *key, uint32_t keylen);
 rstatus_t server_pool_run(struct server_pool *pool);
+rstatus_t server_update_perm(struct server_pool *pool);
 rstatus_t server_pool_preconnect(struct context *ctx);
 void server_pool_disconnect(struct context *ctx);
 rstatus_t server_pool_init(struct array *server_pool, struct array *conf_pool, struct context *ctx);
+rstatus_t server_pool_permission_update(struct array *server_pool, struct array *conf_pool, struct context *ctx);
 void server_pool_deinit(struct array *server_pool);
 
 #endif

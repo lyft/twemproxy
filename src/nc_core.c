@@ -101,10 +101,19 @@ core_ctx_create(struct instance *nci)
         return NULL;
     }
 
+    status = server_pool_permission_update(&ctx->pool, &ctx->cf->pool, ctx);
+    if (status != NC_OK) {
+        conf_destroy(ctx->cf);
+            nc_free(ctx);
+            return NULL;
+    }
+
     log_debug(LOG_VVERB, "created ctx %p id %"PRIu32"", ctx, ctx->id);
 
     return ctx;
 }
+
+
 
 static void
 core_ctx_destroy(struct context *ctx)
