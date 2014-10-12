@@ -4,6 +4,7 @@ alpha:
   distribution: ketama
   auto_eject_hosts: true
   redis: true
+  mode: 0755
   server_retry_timeout: 2000
   server_failure_limit: 1
   servers:
@@ -13,6 +14,7 @@ beta:
   listen: 127.0.0.1:22122
   hash: fnv1a_64
   hash_tag: "{}"
+  mode: 0755
   distribution: ketama
   auto_eject_hosts: false
   timeout: 400
@@ -29,6 +31,7 @@ gamma:
   distribution: ketama
   timeout: 400
   backlog: 1024
+  mode: 0755
   preconnect: true
   auto_eject_hosts: true
   server_retry_timeout: 2000
@@ -42,6 +45,7 @@ delta:
   hash: fnv1a_64
   distribution: ketama
   timeout: 100
+  mode: 0755
   auto_eject_hosts: true
   server_retry_timeout: 2000
   server_failure_limit: 1
@@ -61,6 +65,7 @@ omega:
   listen: /tmp/gamma
   hash: hsieh
   distribution: ketama
+  mode: 0777
   auto_eject_hosts: false
   servers:
    - 127.0.0.1:11214:100000
