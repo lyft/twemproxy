@@ -450,14 +450,20 @@ bool
 valid_auth(struct context *ctx, struct conn *conn, struct msg *msg)
 {
     struct server_pool *pool = (struct server_pool *)conn->owner;
+    uint8_t *key;
+    uint32_t keylen;
+    struct keypos *kpos;
 
     if (pool->redis_auth.len > 0) {
-        long keylen = msg->key_end - msg->key_start;
+        kpos = array_get(msg->keys, 0);
+        key = kpos->start;
+        long keylen = (uint32_t)(kpos->end - kpos->start);
+
         if (keylen != pool->redis_auth.len) {
             return false;
         }
 
-        if (memcmp(pool->redis_auth.data, msg->key_start, keylen) != 0) {
+        if (memcmp(pool->redis_auth.data, kpos->start, keylen) != 0) {
             return false;
         }
     }
