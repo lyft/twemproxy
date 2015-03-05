@@ -444,6 +444,8 @@ req_make_reply(struct context *ctx, struct conn *conn, struct msg *req)
     req->done = 1;
     conn->enqueue_outq(ctx, conn, req);
     return NC_OK;
+}
+
 bool
 valid_auth(struct context *ctx, struct conn *conn, struct msg *msg)
 {
