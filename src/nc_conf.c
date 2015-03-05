@@ -90,10 +90,6 @@ static struct command conf_commands[] = {
       conf_set_bool,
       offsetof(struct conf_pool, preconnect) },
 
-    { string("mode"),
-      conf_set_string,
-      offsetof(struct conf_pool, mode) },
-
     { string("auto_eject_hosts"),
       conf_set_bool,
       offsetof(struct conf_pool, auto_eject_hosts) },
