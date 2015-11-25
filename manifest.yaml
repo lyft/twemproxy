@@ -1,0 +1,13 @@
+- name: nutcracker
+  description: redis and memcached network cluster proxy
+  repository: git@github.com:lyft/twemproxy.git
+  containers:
+    - name: server
+      mounts:
+        - /var/run/nutcracker
+  groups:
+    - name: onebox
+      containers:
+        - server
+      groups:
+        - redis.onebox
