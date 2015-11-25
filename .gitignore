@@ -63,6 +63,7 @@ nutcracker
 /config.status
 /configure.scan
 /configure
+/generated
 
 Makefile
 Makefile.in
