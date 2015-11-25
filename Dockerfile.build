@@ -2,7 +2,7 @@ FROM dregistry.lyft.net/python:latest
 RUN apt-get update -y && \
     apt-get install -y build-essential autoconf libtool && \
     pip install jinja2==2.8 pyyaml
-RUN apt-get install -y gettext gettext-base
+RUN apt-get install -y gettext gettext-base libltdl-dev
 #RUN cd /build/source/conf && \
 #    python generate.py && \
 #    mkdir -p /build/conf && \
