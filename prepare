@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+autoreconf -fvi
+./configure
+make
+make install
+echo "HERE"
+exit 0

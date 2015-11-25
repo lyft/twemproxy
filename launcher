@@ -1,0 +1,3 @@
+#!/bin/bash
+set -e
+exec /usr/bin/nutcracker -c /etc/nutcracker/$SERVICE_INSTANCE.yaml

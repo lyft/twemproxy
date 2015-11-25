@@ -1,0 +1,18 @@
+{% for name, config in pools.iteritems() %}
+{{name}}_sock:
+  listen: /var/run/nutcracker/{{name}}.sock
+  redis: true
+  hash: fnv1a_64
+  preconnect: true
+  distribution: ketama
+  auto_eject_hosts: true
+  mode: 0775
+  timeout: 1000
+  server_retry_timeout: 1000
+  server_failure_limit: 3
+  {% set servers = config[service_instance] %}
+  servers:
+    {% for server in servers -%}
+    - {{ server }}
+    {% endfor %}
+{% endfor %}
