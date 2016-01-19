@@ -3,11 +3,6 @@
   repository: git@github.com:lyft/twemproxy.git
   containers:
     - name: server
-      mounts:
-        - /var/run/nutcracker
-  groups:
-    - name: onebox
-      containers:
-        - server
-      groups:
-        - redis.onebox
+      volumes:
+        - name: nutcracker
+          path: /var/run/nutcracker
