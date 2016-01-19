@@ -1,0 +1,41 @@
+userlocationshw_sock:
+  listen: /var/run/nutcracker/userlocationshw.sock
+  redis: true
+  hash: fnv1a_64
+  preconnect: true
+  distribution: ketama
+  auto_eject_hosts: true
+  mode: 0775
+  timeout: 1000
+  server_retry_timeout: 1000
+  server_failure_limit: 3
+  servers:
+    - redis-server.envoy:6379:1
+
+umbrella_sock:
+  listen: /var/run/nutcracker/umbrella.sock
+  redis: true
+  hash: fnv1a_64
+  preconnect: true
+  distribution: ketama
+  auto_eject_hosts: true
+  mode: 0775
+  timeout: 1000
+  server_retry_timeout: 1000
+  server_failure_limit: 3
+  servers:
+    - redis-server.envoy:6379:1
+
+eventdedupe_sock:
+  listen: /var/run/nutcracker/eventdedupe.sock
+  redis: true
+  hash: fnv1a_64
+  preconnect: true
+  distribution: ketama
+  auto_eject_hosts: true
+  mode: 0775
+  timeout: 1000
+  server_retry_timeout: 1000
+  server_failure_limit: 3
+  servers:
+    - redis-server.envoy:6379:1

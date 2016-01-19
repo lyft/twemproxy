@@ -1,9 +1,0 @@
-userlocationshw:
-  development:
-    - redis.envoy:6379:1
-umbrella:
-  development:
-    - redis.envoy:6379:1
-eventdedupe:
-  development:
-    - redis.envoy:6379:1

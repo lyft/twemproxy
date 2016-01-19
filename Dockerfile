@@ -1,5 +1,9 @@
-FROM dregistry.lyft.net/base:latest
-ENTRYPOINT ["/code/twemproxy/launcher"]
-ADD nutcracker /usr/bin/nutcracker
-ADD launcher /code/twemproxy/launcher
-ADD .image/generated/*.yaml /etc/nutcracker/
+FROM lyft/base
+ENTRYPOINT ["/code/twemproxy/entrypoint.sh"]
+RUN apt-get update -y && \
+    apt-get install -y build-essential autoconf libtool
+COPY . /code/twemproxy
+RUN autoreconf -fvi && \
+    ./configure && \
+    make && \
+    make install
