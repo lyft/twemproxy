@@ -1,6 +1,6 @@
 # pyc
 *.pyc
-
+*.image
 # Compiled Object files
 *.lo
 *.o
