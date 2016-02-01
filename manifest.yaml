@@ -1,8 +1,8 @@
-- name: nutcracker
-  description: redis and memcached network cluster proxy
-  repository: git@github.com:lyft/nutcracker.git
-  containers:
-    - name: server
-      volumes:
-        - name: nutcracker
-          path: /var/run/nutcracker
+name: nutcracker
+description: redis and memcached network cluster proxy
+repository: git@github.com:lyft/nutcracker.git
+containers:
+  - name: server
+    volumes:
+      - name: nutcracker
+        path: /var/run/nutcracker
